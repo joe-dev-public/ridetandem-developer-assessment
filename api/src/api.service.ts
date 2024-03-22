@@ -18,18 +18,12 @@ export class ApiService {
     // Note: this isn't necessarily the best place for this logic.
     // Todo: could make a separate private method?
     const currentDayOfWeek = new Date().getDay();
-    // Todo: cleanup: remove:
-    // console.log('Joe says', currentDayOfWeek);
 
     // For each bus, check each value in the nonOperationalDays array
     // If any one of those values matches the currentDayOfWeek, omit that bus
-    // (Inversely, could use _.remove here)
     const todayBusTimes = _.filter(orderedBusTimes, (bus: BusTime) => {
       return !bus.nonOperationalDays.includes(currentDayOfWeek);
     });
-
-    // Todo: cleanup: remove:
-    // console.log('Joe says', orderedBusTimes);
 
     return todayBusTimes;
   }
