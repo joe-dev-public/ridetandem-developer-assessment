@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+
 interface Props {}
 
 const App: React.FC<Props> = () => {
+  useEffect(() => {
+    const endpoint_url = "http://localhost:3000/bus-times";
+
+    fetch(endpoint_url)
+      .then((response) => response.json())
+      .then((response) => console.log(response));
+  }, []);
+
   return (
     <div className="App">
       <div>
