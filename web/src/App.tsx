@@ -16,7 +16,13 @@ const App: React.FC<Props> = () => {
   const [busData, setBusData] = useState<Array<BusData> | null>(null);
 
   useEffect(() => {
-    const endpoint_url = "http://localhost:3000/bus-times";
+    const optionalBusId: string = window.location.pathname;
+
+    let endpoint_url: string = "http://localhost:3000/bus-times";
+
+    if (optionalBusId !== "") {
+      endpoint_url += optionalBusId;
+    }
 
     // Todo: basic error-handling for empty response etc.
     const fetchData = () => {
@@ -43,6 +49,7 @@ const App: React.FC<Props> = () => {
         <h1>
           Live bus times for <b>Park Road</b>
         </h1>
+        {!busData && <div>Loading...</div>}
         {busData && (
           <div className="CardContainer">
             {busData.map((busTime) => (

@@ -12,6 +12,19 @@ export interface BusTime {
 @Injectable()
 export class ApiService {
   getBusTimes() {
+    return this.filterAndSortBusTimes();
+  }
+  getOneBusTimes(busId: number) {
+    const thisRouteOnly = _.filter(
+      this.filterAndSortBusTimes(),
+      (bus: BusTime) => {
+        return bus.busId == busId;
+      },
+    );
+
+    return thisRouteOnly;
+  }
+  private filterAndSortBusTimes() {
     const randomBusTimes = this.generateRandomBusTimes(5);
     const orderedBusTimes = _.sortBy(randomBusTimes, ['minutesUntilArrival']);
 
