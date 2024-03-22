@@ -49,6 +49,7 @@ const App: React.FC<Props> = () => {
         <h1>
           Live bus times for <b>Park Road</b>
         </h1>
+        {!busData && <div>Loading...</div>}
         {busData && (
           <div className="CardContainer">
             {busData.map((busTime) => (
