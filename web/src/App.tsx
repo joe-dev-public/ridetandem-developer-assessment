@@ -51,7 +51,9 @@ const App: React.FC<Props> = () => {
                   <b>{busTime.busId}</b>
                 </div>
                 <div className="Card__Details">
-                  <div>To {busTime.destination}</div>
+                  <div className="Card__Destination">
+                    To {busTime.destination}
+                  </div>
                   <div>
                     {busTime.minutesUntilArrival <= 1
                       ? // Todo: could use <span> with class to highlight "Due"

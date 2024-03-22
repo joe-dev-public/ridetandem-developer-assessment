@@ -16,6 +16,10 @@ body {
   width: fit-content;
 }
 
+.App > div {
+  margin: 0 16px;
+}
+
 /* Todo: is use of double underscore (__) a BEM/other naming convention?
 I might be able to improve the class name here. */
 /* Adjacent sibling combinator ;¬) */
@@ -24,12 +28,18 @@ I might be able to improve the class name here. */
 }
 
 .Card {
-  width: 440px;
   border-radius: 6px;
   border: 1px solid #d7d7d7;
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
+  min-width: 300px;
+}
+
+@media screen and (min-width: 481px) {
+  .Card {
+    width: 440px;
+  }
 }
 
 .Card__Header {
@@ -40,6 +50,10 @@ I might be able to improve the class name here. */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.Card__Destination {
+  margin-right: 32px;
 }
 
 h1 {
