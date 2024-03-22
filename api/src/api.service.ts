@@ -11,7 +11,9 @@ export interface BusTime {
 @Injectable()
 export class ApiService {
   getBusTimes() {
-    return this.generateRandomBusTimes(5);
+    const randomBusTimes = this.generateRandomBusTimes(5);
+    const orderedBusTimes = _.sortBy(randomBusTimes, ['minutesUntilArrival']);
+    return orderedBusTimes;
   }
   private generateRandomBusTimes(timesToGenerate: number) {
     let data: BusTime[] = [];
