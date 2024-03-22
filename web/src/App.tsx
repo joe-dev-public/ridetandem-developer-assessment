@@ -19,14 +19,21 @@ const App: React.FC<Props> = () => {
     const endpoint_url = "http://localhost:3000/bus-times";
 
     // Todo: basic error-handling for empty response etc.
+    const fetchData = () => {
+      fetch(endpoint_url)
+        .then((response) => response.json())
+        .then((response) => {
+          setBusData(response);
+        });
+    };
 
-    fetch(endpoint_url)
-      .then((response) => response.json())
-      .then((response) => {
-        // Todo: cleanup: remove:
-        // console.log(response);
-        setBusData(response);
-      });
+    fetchData();
+
+    const interval = setInterval(() => fetchData(), 10 * 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
