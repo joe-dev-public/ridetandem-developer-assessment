@@ -11,5 +11,6 @@
 - [x] Start writing this plan! :¬)
 - [x] Create repo on GitHub
 - [x] Remove current remotes (`git remote remove origin`)
-- [x] Add new remotes (`git remote add origin git@github.com-joe-dev-public:joe-dev-public/ridetandem-developer-assessment.git`)
+- [x] Add new remotes
+  - `git remote add origin git@github.com-joe-dev-public:joe-dev-public/ridetandem-developer-assessment.git`
 - [ ] Create GitHub issues for user stories (required features)
