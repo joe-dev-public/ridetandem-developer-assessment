@@ -20,6 +20,7 @@
 - Patchy types? (Some maybe missing, some could maybe be improved/more robust.)
 - Styling: I followed the mockup, but a little extra ~refinement would've been nice :¬)
 - Accessibility: Lighthouse seems happy with this (but performance is another matter!).
+- Better structuring of logic in backend.
 
 There might also be code comments (likely `Todo: ...` or `Note: ...`), or comments in [issues](https://github.com/joe-dev-public/ridetandem-developer-assessment/issues?q=is%3Aissue), covering similar ideas. 😌
 
