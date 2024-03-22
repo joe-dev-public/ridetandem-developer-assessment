@@ -27,6 +27,28 @@ export class ApiService {
 
     return todayBusTimes;
   }
+  getOneBusTimes(busId: number) {
+    const randomBusTimes = this.generateRandomBusTimes(5);
+    const orderedBusTimes = _.sortBy(randomBusTimes, ['minutesUntilArrival']);
+
+    // Note: this isn't necessarily the best place for this logic.
+    // Todo: could make a separate private method?
+    const currentDayOfWeek = new Date().getDay();
+
+    // For each bus, check each value in the nonOperationalDays array
+    // If any one of those values matches the currentDayOfWeek, omit that bus
+    const todayBusTimes = _.filter(orderedBusTimes, (bus: BusTime) => {
+      return !bus.nonOperationalDays.includes(currentDayOfWeek);
+    });
+
+    console.log('joe says', busId);
+
+    const thisRouteOnly = _.filter(todayBusTimes, (bus: BusTime) => {
+      return bus.busId == busId;
+    });
+
+    return thisRouteOnly;
+  }
   private generateRandomBusTimes(timesToGenerate: number) {
     let data: BusTime[] = [];
     for (let i = 0; i < timesToGenerate; i++) {
