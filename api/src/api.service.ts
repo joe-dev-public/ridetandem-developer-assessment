@@ -6,6 +6,7 @@ export interface BusTime {
   busId: number;
   destination: string;
   minutesUntilArrival: number;
+  nonOperationalDays: Array<number>;
 }
 
 @Injectable()
@@ -13,17 +14,39 @@ export class ApiService {
   getBusTimes() {
     const randomBusTimes = this.generateRandomBusTimes(5);
     const orderedBusTimes = _.sortBy(randomBusTimes, ['minutesUntilArrival']);
-    return orderedBusTimes;
+
+    // Note: this isn't necessarily the best place for this logic.
+    // Todo: could make a separate private method?
+    const currentDayOfWeek = new Date().getDay();
+    // Todo: cleanup: remove:
+    // console.log('Joe says', currentDayOfWeek);
+
+    // For each bus, check each value in the nonOperationalDays array
+    // If any one of those values matches the currentDayOfWeek, omit that bus
+    // (Inversely, could use _.remove here)
+    const todayBusTimes = _.filter(orderedBusTimes, (bus: BusTime) => {
+      return !bus.nonOperationalDays.includes(currentDayOfWeek);
+    });
+
+    // Todo: cleanup: remove:
+    // console.log('Joe says', orderedBusTimes);
+
+    return todayBusTimes;
   }
   private generateRandomBusTimes(timesToGenerate: number) {
     let data: BusTime[] = [];
     for (let i = 0; i < timesToGenerate; i++) {
-      const { id: busId, destination } = this.getRandomBusRoute();
+      const {
+        id: busId,
+        destination,
+        nonOperationalDays,
+      } = this.getRandomBusRoute();
       data.push({
         id: i,
         busId,
         destination,
         minutesUntilArrival: _.random(1, 15),
+        nonOperationalDays,
       });
     }
     return data;
