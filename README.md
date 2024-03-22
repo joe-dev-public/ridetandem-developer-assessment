@@ -18,12 +18,12 @@
 
 ## Plan:
 
-- [ ] Check supplied code
+- [x] Check supplied code
   - [x] `yarn install` and `yarn dev` in both `/api` and `/web`.
-- [ ] For each user story I've created, work out what needs to be added/changed
 - [ ] Work through implementing each user story!
+  - For each user story I've created, work out what needs to be added/changed.
   - Ideally use feature branch per story, where possible.
   - (But given time and scope constraints, they might proceed in parallel, so some overlapping is OK.)
-- [ ] Add stretch user stories (improvements/extensions)
+- [ ] Add stretch user stories (improvements/extensions), if time.
   - (During implementation, or when supplied user stories are completed.)
 - [ ] Update the supplied user stories or this plan as you go, if required :¬)
