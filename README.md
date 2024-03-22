@@ -19,6 +19,7 @@
 ## Plan:
 
 - [ ] Check supplied code
+  - `yarn install` and `yarn run` in both `/api` and `/web`.
 - [ ] For each user story I've created, work out what needs to be added/changed
 - [ ] Work through implementing each user story!
   - (They might proceed in parallel, not necessarily one after the other.)
