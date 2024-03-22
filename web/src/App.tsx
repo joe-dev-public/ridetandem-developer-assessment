@@ -30,23 +30,12 @@ const App: React.FC<Props> = () => {
   return (
     <div className="App">
       <div>
-        <div>
+        {/* Todo: semantic markup improvements? This isn't _really_ an h1 */}
+        <h1>
           Live bus times for <b>Park Road</b>
-        </div>
-        {/* Todo: cleanup: remove */}
-        {/*
-        <div className="Card">
-          <div className="Card__Header">
-            <b>176</b>
-          </div>
-          <div className="Card__Details">
-            <div>To Newham Close</div>
-            <div>2 mins</div>
-          </div>
-        </div>
-        */}
+        </h1>
         {busData && (
-          <>
+          <div className="CardContainer">
             {busData.map((busTime) => (
               <div className="Card" key={busTime.id}>
                 <div className="Card__Header">
@@ -59,7 +48,7 @@ const App: React.FC<Props> = () => {
                 </div>
               </div>
             ))}
-          </>
+          </div>
         )}
       </div>
     </div>
