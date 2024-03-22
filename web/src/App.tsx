@@ -18,6 +18,8 @@ const App: React.FC<Props> = () => {
   useEffect(() => {
     const endpoint_url = "http://localhost:3000/bus-times";
 
+    // Todo: basic error-handling for empty response etc.
+
     fetch(endpoint_url)
       .then((response) => response.json())
       .then((response) => {
@@ -43,8 +45,12 @@ const App: React.FC<Props> = () => {
                 </div>
                 <div className="Card__Details">
                   <div>To {busTime.destination}</div>
-                  {/* Todo: logic here to handle <= 1min until arrival: */}
-                  <div>{busTime.minutesUntilArrival} mins</div>
+                  <div>
+                    {busTime.minutesUntilArrival <= 1
+                      ? // Todo: could use <span> with class to highlight "Due"
+                        "Due"
+                      : `${busTime.minutesUntilArrival} mins`}
+                  </div>
                 </div>
               </div>
             ))}
