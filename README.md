@@ -63,11 +63,19 @@ When starting this task, I created a couple of lists (below) to help me plan and
 
 ## Ideas for improvement
 
+### General
+
 - ⁉️ Basic frontend (FE) error handling (e.g. if `fetch` fails).
 - 🟦 Improved/more robust types? (Some might be missing/defaulting to `any`?)
 - 🎨 Styling: I followed the mockup, but some small improvements to spacing, typography, responsive layout etc. could go a long way to improving clarity/readability.
 - :accessibility: Accessibility: [Lighthouse seems happy](https://github.com/joe-dev-public/ridetandem-developer-assessment/issues/5#issuecomment-2015545109), but there might be better choices re semantic HTML, use of ARIA attributes, etc. (Also, performance looks like it needs work!)
 - 🔧 Better structuring of logic in backend (e.g. using a new module rather than the app module, separating service helper functions into other files).
+
+### Features
+
+- The stretch goal I implemented could provide toggle buttons above the arrivals list to show/hide available routes.
+  - This would allow users to choose multiple routes at once, in any combination (whereas the current `/busId` URL route param approach is limited to just one route).
+- There could be some indication for the user of which routes don't serve the stop on the current day.
 
 ### Other ideas I had can be found...
 
