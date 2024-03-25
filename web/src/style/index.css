@@ -20,6 +20,30 @@ body {
   margin: 0 16px;
 }
 
+.ButtonContainer {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.ButtonContainer > * + * {
+  margin-left: 8px;
+}
+
+.Button {
+  background: #555;
+  border: 1px solid #d7d7d7;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 16px;
+  user-select: none;
+}
+
+.Selected {
+  background: #dc241f;
+}
+
 /* Todo: is use of double underscore (__) a BEM/other naming convention?
 I might be able to improve the class name here. */
 /* Adjacent sibling combinator ;¬) */
