@@ -14,16 +14,28 @@ export class ApiService {
   getBusTimes() {
     return this.filterAndSortBusTimes();
   }
-  getOneBusTimes(busId: number) {
-    const thisRouteOnly = _.filter(
-      this.filterAndSortBusTimes(),
-      (bus: BusTime) => {
-        return bus.busId == busId;
-      },
-    );
 
-    return thisRouteOnly;
-  }
+  // Note: see comment in controller. The below would allow us to have a
+  // "/bus-times?route=a,b,c" query string, but we don't actually want that
+  // for now.
+  //
+  // getBusTimes(routes?: Array<string>) {
+  //   if (routes[0] === 'all') {
+  //     return this.filterAndSortBusTimes();
+  //   }
+
+  //   const thesesRoutesOnly = _.filter(
+  //     this.filterAndSortBusTimes(),
+  //     (bus: BusTime) => {
+  //       // Todo: hopefully not necessary to coerce to string here if we can
+  //       // correctly use a pipe to validate/transform in controller?
+  //       return routes.includes(String(bus.busId));
+  //     },
+  //   );
+
+  //   return thesesRoutesOnly;
+  // }
+
   private filterAndSortBusTimes() {
     const randomBusTimes = this.generateRandomBusTimes(5);
     const orderedBusTimes = _.sortBy(randomBusTimes, ['minutesUntilArrival']);
