@@ -60,6 +60,10 @@ When starting this task, I created a couple of lists (below) to help me plan and
 - A sixth requirement implicit in the supplied mockup ([#6](https://github.com/joe-dev-public/ridetandem-developer-assessment/issues/6)).
 - One stretch goal which I thought of while completing the other requirements ([PR #12](https://github.com/joe-dev-public/ridetandem-developer-assessment/pull/12)).
 
+### Outside the time given:
+
+- I decided to explore one improvement in [PR #13](https://github.com/joe-dev-public/ridetandem-developer-assessment/pull/13).
+- (I kept that PR unmerged to make it clear it was completed in "extra time" :¬)
 
 ## Ideas for improvement
 
@@ -73,7 +77,7 @@ When starting this task, I created a couple of lists (below) to help me plan and
 
 ### Features
 
-- The stretch goal I implemented could provide toggle buttons above the arrivals list to show/hide available routes.
+- The stretch goal I implemented could provide toggle buttons above the arrivals list to show/hide available routes.[^1]
   - This would allow users to choose multiple routes at once, in any combination (whereas the current `/busId` URL route param approach is limited to just one route).
 - There could be some indication for the user of which routes don't serve the stop on the current day.
 
@@ -81,3 +85,5 @@ When starting this task, I created a couple of lists (below) to help me plan and
 
 - In some code comments (beginning `Todo:` or `Note:`).
 - In some issue comments (e.g. [here](https://github.com/joe-dev-public/ridetandem-developer-assessment/issues/2#issue-2202173806) and [here](https://github.com/joe-dev-public/ridetandem-developer-assessment/issues/3#issue-2202178113)).
+
+[^1]: I ended up exploring this in my "extra time" PR: https://github.com/joe-dev-public/ridetandem-developer-assessment/pull/13
